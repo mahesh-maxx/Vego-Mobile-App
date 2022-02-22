@@ -27,8 +27,9 @@ export default class LoginScreen extends Component {
       return response.json();
     }).then(function(result){
       console.log("rs ",result)
-      if(result.id !== 'error'){
-        that.props.navigation.navigate("Flash")
+      if(result.id !== 'error' || result == null){
+        console.log("in the if")
+        that.props.navigation.navigate("Main")
       } else if(result.id === 'error'){
         Alert.alert(
           'Login Error',
@@ -55,6 +56,8 @@ export default class LoginScreen extends Component {
          ],
          {cancelable: false})
       }
+    }).catch((err)=>{
+      console.log("err ",err)
     })
   }
 
