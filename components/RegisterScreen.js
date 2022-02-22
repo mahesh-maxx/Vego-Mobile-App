@@ -105,7 +105,9 @@ export default class RegisterScreen extends Component {
       </View>
       <View style={{marginLeft:20, marginTop:30}}>
         <Text>Password</Text>
-        <TextInput placeholder="Enter Password" secureTextEntry={!this.state.showPass} backgroundColor="#6bb030" style={{ marginTop:15, marginRight:20,borderRadius:5,paddingLeft:5}} />
+        <TextInput placeholder="Enter Password" secureTextEntry={!this.state.showPass} backgroundColor="#6bb030" style={{ marginTop:15, marginRight:20,borderRadius:5,paddingLeft:5}} 
+         value={this.state.password}
+         onChangeText={(password) => this.setState({ password })} />
       </View>
       <View style={{marginLeft:20, marginTop:15, display:'flex', flexDirection:'row'}}>
       <CheckBox

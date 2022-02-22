@@ -8,6 +8,7 @@ import LoginScreen from './components/LoginScreen';
 import ForgetpasswordScreen from './components/ForgetpasswordScreen';
 import RegisterScreen from './components/RegisterScreen';
 import EntercodeScreen from './components/EntercodeScreen';
+import MainScreen from './components/MainScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ export default function App() {
           <Stack.Screen name="Forgetpassword" component={ForgetpasswordScreen} options={{headerShown: true , title:"Forget Password",backgroungColor:"blue"}} />
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Entercode" component={EntercodeScreen} />
+          <Stack.Screen name="Main" component={MainScreen}  options={{headerShown: true , title:"Current Location",backgroungColor:"#6bb030"}} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

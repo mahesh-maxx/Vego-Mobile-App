@@ -19,16 +19,14 @@ export default class LoginScreen extends Component {
     let data = new FormData()
     data.append('email',that.state.email);
     data.append('password',that.state.password);
-    console.log("data ",data,url)
     fetch(url, {
       method: 'POST',
       body: data
     }).then(function (response) {
       return response.json();
     }).then(function(result){
-      console.log("rs ",result)
-      if(result.id !== 'error'){
-        that.props.navigation.navigate("Flash")
+      if(result.id !== 'error' || result == null){
+        that.props.navigation.navigate("Main")
       } else if(result.id === 'error'){
         Alert.alert(
           'Login Error',
