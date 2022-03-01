@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, Button, Alert, Modal, Pressable } from 'react-native';
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 
 class EntercodeScreen extends Component {
   constructor(props) {
