@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { View, ScrollView, StyleSheet, Text, Image, Button } from "react-native";
+import { View, ScrollView, StyleSheet, Text, Image, Button, TouchableOpacity } from "react-native";
 import { Octicons, Ionicons, Entypo } from '@expo/vector-icons';
 import { Dimensions } from "react-native";
 const win = Dimensions.get('window');
@@ -77,11 +77,18 @@ export default class MainScreen extends Component {
 
                 <Text style={{textAlign:'center',marginTop:10}}>BEST SELLING SUBSCRIPTION BOXES</Text>
                 <View >
+                <Text style={{fontSize:10,textAlign:'right',marginRight:10 }}>View all</Text>
                 <View style={{flex:1,alignItems:'center',marginTop:10}}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Box')}>
+                        <Image style={{width:200,height:200}} source={require('../assets/b1.png')} />
+                    </TouchableOpacity>
+                    <Text style={{textAlign:'center',fontSize:25}}>Spinach</Text>
                     <Button title="SUBSCRIBE" style={{width:100,height:30,backgroundColor:"#6bb030"}}  />
                 </View>
+                </View>
+                <View>
                 <View style={{marginLeft:10,marginRight:10,marginTop:10}}>
-                    <Button title="Refer and earn" style={{borderRadius:50,backgroundColor:"#6bb030"}} />
+                    <Button title="Refer and earn" style={{borderRadius:50,backgroundColor:"#6bb030"}} onPress={() => this.props.navigation.navigate('Profile')} />
                 </View>
                 </View>
                 <Text style={{marginTop:10,textAlign:'center'}}>Recipes</Text>

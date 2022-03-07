@@ -10,6 +10,9 @@ import RegisterScreen from './components/RegisterScreen';
 import EntercodeScreen from './components/EntercodeScreen';
 import MainScreen from './components/MainScreen';
 import CategoryScreen from './components/CategoryScreen';
+import BoxScreen from './components/BoxScreen';
+import CheckoutScreen from './components/CategoryScreen';
+import ProfileScreen from './components/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +29,9 @@ export default function App() {
           <Stack.Screen name="Entercode" component={EntercodeScreen} />
           <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="Category" component={CategoryScreen} options={{headerShown: true}}/>
+          <Stack.Screen name="Box" component={BoxScreen} />
+          <Stack.Screen name="Checkout" component={CheckoutScreen} options={{headerShown: true}}/>
+          <Stack.Screen name="Profile" component={ProfileScreen} options={{headerShown: true, color:'#939994', title:"My Profile"}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
