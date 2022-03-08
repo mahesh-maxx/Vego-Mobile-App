@@ -24,8 +24,8 @@ render(){
       <View style={{marginTop:20}}>
         <Button title="Already Have Account? Log in" color="#6bb030" style={{marginTop:50}} onPress={() => this.props.navigation.navigate('Welcome')} />
       </View>
-      <View style={{marginTop:120}}>
-        <Text >I just want to explore</Text>
+      <View style={{marginTop:120}} >
+        <Text onPress={() => this.props.navigation.navigate('Main')} >I just want to explore</Text>
       </View>
     </View>
   );

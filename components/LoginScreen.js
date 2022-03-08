@@ -53,6 +53,8 @@ export default class LoginScreen extends Component {
          ],
          {cancelable: false})
       }
+    }).catch((err)=>{
+      console.log("err ",err)
     })
   }
 
@@ -83,7 +85,7 @@ export default class LoginScreen extends Component {
         />
         <Text style={{marginLeft:10}}>Show Password</Text>
       </View>
-      <View style={{alignItems: 'flex-end', marginTop:30,  marginRight:20}}>
+      <View style={{alignItems: 'flex-end', marginTop:30,  marginRight:20 }}>
         <Text onPress={() => this.props.navigation.navigate('Forgetpassword')}>Forget Password ?</Text> 
       </View>
       <View style={{width: 100, marginTop:40, alignItems:'center',marginLeft:150}}>
