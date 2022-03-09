@@ -3,21 +3,35 @@ import { View, ScrollView, StyleSheet, Text, Image, Button, TouchableOpacity } f
 import { Octicons, Ionicons, Entypo } from '@expo/vector-icons';
 import { Dimensions } from "react-native";
 const win = Dimensions.get('window');
+import axios from 'axios';
 
 export default class MainScreen extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            box : ''
+        }
     }
+
+    componentDidMount = ()=>{
+        axios.get(`https://vegco.co/web/api/Productsapi/categories_boxes?id=1`).then((response) => {
+            //console.log(response.data);
+            this.setState({
+                box: response.data
+            })
+          });
+    }
+
     render() {
         return (
             <ScrollView contentContainerStyle={StyleSheet.contentContainer}>
                 <View style={{ backgroundColor: "#6bb030", height: 50, flex: 1, flexDirection: 'row' }}>
-                    <View style={{ paddingTop: 10 }}><Entypo name="menu" size={25} /></View>
-                    <View style={{ paddingTop: 10, flex: 1, alignItems: 'baseline', flexDirection: 'row', marginLeft: 110 }}>
+                    <View style={{ paddingTop: 25 }}><Entypo name="menu" size={25} /></View>
+                    {/*<View style={{ paddingTop: 25, flex: 1, alignItems: 'baseline', flexDirection: 'row', marginLeft: 110 }}>
                         <Octicons name="location" size={25} />
                         <Text>Current Location</Text>
-                    </View>
-                    <View style={{ paddingTop: 10 }}><Ionicons name="search-sharp" size={25} /></View>
+        </View>*/}
+                    <View style={{ paddingTop: 25 }}><Ionicons name="search-sharp" size={25} /></View>
                 </View>
                 <View style={{ marginTop: 5, flex: 1 }}>
                     <Image style={{ width: win.width, height: win.width / 2, }} source={require('../assets/b1.png')} />
@@ -26,22 +40,30 @@ export default class MainScreen extends Component {
                 <Text style={{ backgroundColor: 'white', fontSize: 15, textAlign: 'center', fontFamily: 'serif', color: '#6bb030' }}>Fresh Organic Vegetables Delivery Made Easy</Text>
                 <Image source={require("../assets/arrow-1.png")} style={{ width: win.width, marginTop: 5 }} />
                 <View style={{ marginTop: 5, flex: 1, flexDirection: 'row', flexWrap: 'wrap' }}>
-                    <View>
+                    <TouchableOpacity  onPress={()=>this.props.navigation.navigate('Category', {
+                        category: "Vegetables"
+                    })}>
                         <Image source={require("../assets/vegetable_icons.png")} style={{ width: win.width / 2, height: win.width / 2 }} />
                         <Text style={{ backgroundColor: 'white', fontFamily: 'serif', fontSize: 20, textAlign: 'center' }}>Vegetable</Text>
-                    </View>
-                    <View>
+                    </TouchableOpacity>
+                    <TouchableOpacity  onPress={()=>this.props.navigation.navigate('Category', {
+                        category: "Juices"
+                    })}>
                         <Image source={require("../assets/juice_icons.png")} style={{ width: win.width / 2, height: win.width / 2 }} />
                         <Text style={{ backgroundColor: 'white', fontFamily: 'serif', fontSize: 20, textAlign: 'center' }}>Juice</Text>
-                    </View>
-                    <View>
+                    </TouchableOpacity>
+                    <TouchableOpacity  onPress={()=>this.props.navigation.navigate('Category', {
+                        category: "Salad"
+                    })}>
                         <Image source={require("../assets/salad_icons.png")} style={{ width: win.width / 2, height: win.width / 2 }} />
                         <Text onPress={()=>this.props.navigation.navigate('Category')} style={{ backgroundColor: 'white', fontFamily: 'serif', fontSize: 20, textAlign: 'center' }}>Salad</Text>
-                    </View>
-                    <View>
+                    </TouchableOpacity>
+                    <TouchableOpacity  onPress={()=>this.props.navigation.navigate('Category', {
+                        category: "Ready to Cook"
+                    })}>
                         <Image source={require("../assets/ready.png")} style={{ width: win.width / 2, height: win.width / 2 }} />
                         <Text style={{ backgroundColor: 'white', fontFamily: 'serif', fontSize: 20, textAlign: 'center' }}>Ready to Cook</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <Text style={{ backgroundColor: 'white', fontSize: 20, marginTop: 5, textAlign: 'center', fontFamily: 'serif' }}>Few Steps To A Hassle-Free Delivery</Text>
@@ -77,7 +99,7 @@ export default class MainScreen extends Component {
 
                 <Text style={{textAlign:'center',marginTop:10}}>BEST SELLING SUBSCRIPTION BOXES</Text>
                 <View >
-                <Text style={{fontSize:10,textAlign:'right',marginRight:10 }}>View all</Text>
+                <Text onPress={()=>this.props.navigation.navigate('Boxtypes')} style={{fontSize:10,textAlign:'right',marginRight:10 }}>View all</Text>
                 <View style={{flex:1,alignItems:'center',marginTop:10}}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Box')}>
                         <Image style={{width:200,height:200}} source={require('../assets/b1.png')} />
@@ -88,7 +110,7 @@ export default class MainScreen extends Component {
                 </View>
                 <View>
                 <View style={{marginLeft:10,marginRight:10,marginTop:10}}>
-                    <Button title="Refer and earn" style={{borderRadius:50,backgroundColor:"#6bb030"}} onPress={() => this.props.navigation.navigate('Profile')} />
+                    <Button title="Refer and earn" style={{borderRadius:50,backgroundColor:"#6bb030"}} onPress={() => this.props.navigation.navigate('Checkout')} />
                 </View>
                 </View>
                 <Text style={{marginTop:10,textAlign:'center'}}>Recipes</Text>
@@ -103,4 +125,3 @@ const styles = StyleSheet.create({
         flex:1
     }
 });
-

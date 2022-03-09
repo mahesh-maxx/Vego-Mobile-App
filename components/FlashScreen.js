@@ -13,9 +13,9 @@ export default class FlashScreen extends Component{
   }
   render() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'white' }}>
       <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
-        <Image source={require('../assets/logo.png')}
+        <Image source={require('../assets/logo.jpeg')}
         style={{width:300, height: 300
         }} />
       </TouchableOpacity>

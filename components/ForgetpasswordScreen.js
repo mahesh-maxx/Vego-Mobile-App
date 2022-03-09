@@ -63,8 +63,8 @@ class ForgetpasswordScreen extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 50 }}>
-        <View style={{ marginTop: 100 }}>
+      <View style={{ backgroundColor:'white',flex:1 }}>
+        <View style={{ marginTop: 150 }}>
           <Text style={{ marginLeft: 20, fontSize: 18 }}>Reset your Password</Text>
         </View>
         <View style={{ marginLeft: 20, marginTop: 20 }}>
@@ -72,13 +72,13 @@ class ForgetpasswordScreen extends Component {
         </View>
         <View style={{ marginLeft: 20, marginTop: 30 }}>
           <Text style={{ fontSize: 15 }}>Email</Text>
-          <TextInput placeholder="Enter Email" backgroundColor="#6bb030" style={{ marginTop: 15, marginRight: 15 }}
+          <TextInput placeholder="Enter Email" backgroundColor="#a3cd3d" style={{paddingLeft:7, marginTop: 15, marginRight: 15, height:35, borderRadius:10}}
           value={this.state.email}
           onChangeText={(email) => this.setState({ email })}  />
         </View>
-        <View style={{ marginTop: 20, marginLeft: 20, marginRight: 20 }}>
-          <Button title="Reset Password" color="#6bb030" style={{ textColor: "black" }} onPress={this.forgetPassword} />
-        </View>
+        <TouchableOpacity onPress={this.forgetPassword} style={{ marginTop: 20,flexDirection:'row',justifyContent:'center', height:35 }}>
+          <Text style={{padding:7,fontSize:15, color: "#737875",backgroundColor:"#a3cd3d", height:35, borderRadius:10}} >Reset Password</Text> 
+        </TouchableOpacity>
       </View>
 
     );

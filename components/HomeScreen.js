@@ -8,10 +8,10 @@ export default class HomeScreen extends Component {
 render(){
 
   return (
-    <View style={{flex:1, alignItems:'center',marginTop: 50}}>
+    <View style={{flex:1, alignItems:'center',marginTop: 50, backgroundColor:'white'}}>
       <View>
         <TouchableOpacity>
-          <Image source={require('../assets/i1.png')}
+          <Image source={require('../assets/i1.jpeg')}
           style={{width:300, height: 300}} />
         </TouchableOpacity>
       </View>
@@ -19,10 +19,10 @@ render(){
         <Text style={{textAlign: 'center',width:170, fontSize:30}} numberOfLines={2}>Welcome to Vegco</Text>
       </View>
       <View style={{marginTop:50}}>
-        <Button title="Sign up" color="#6bb030" onPress={() => this.props.navigation.navigate("Register")}/>
+        <Button title="Sign up" color="#a3cd3d" onPress={() => this.props.navigation.navigate("Register")}/>
       </View>
       <View style={{marginTop:20}}>
-        <Button title="Already Have Account? Log in" color="#6bb030" style={{marginTop:50}} onPress={() => this.props.navigation.navigate('Welcome')} />
+        <Button title="Already Have Account? Log in" color="#a3cd3d" style={{marginTop:50}} onPress={() => this.props.navigation.navigate('Welcome')} />
       </View>
       <View style={{marginTop:120}} >
         <Text onPress={() => this.props.navigation.navigate('Main')} >I just want to explore</Text>
