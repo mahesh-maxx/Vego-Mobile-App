@@ -68,7 +68,7 @@ export default class LoginScreen extends Component {
       <Image source={require('../assets/logo.jpeg')}
         style={{width:120, height: 120
         }} />
-      <Text style={{textAlign: 'center',width:170, fontSize:30,marginTop:5}}>Login Account</Text>
+      <Text style={{textAlign: 'center',width:170, fontSize:30,marginTop:25}}>Sign In</Text>
       </View>
     
       <View style={{marginLeft:20, marginTop:100}}>
@@ -77,7 +77,7 @@ export default class LoginScreen extends Component {
         value={this.state.email}
         onChangeText={(email) => this.setState({ email })} />
       </View>
-      <View style={{marginLeft:20, marginTop:30}}>
+      <View style={{marginLeft:20, marginTop:20}}>
         <Text>Password</Text>
         <TextInput placeholder="Enter Password" backgroundColor="#a3cd3d" style={{ marginTop:10, marginRight:20,paddingLeft:5, borderRadius:10, height:35}} 
         secureTextEntry={!this.state.showPass}
@@ -91,8 +91,8 @@ export default class LoginScreen extends Component {
         />
         <Text style={{marginLeft:10}}>Show Password</Text>
       </View>
-      <View style={{alignItems: 'flex-end', marginTop:30,  marginRight:20 }}>
-        <Text style={{fontWeight: 'bold'}} onPress={() => this.props.navigation.navigate('Forgetpassword')}>Forget Password ?</Text> 
+      <View style={{alignItems:'flex-end', marginTop:25,  marginRight:20 }}>
+      <Text style={{fontWeight: 'bold'}} onPress={() => this.props.navigation.navigate('Forgetpassword')}>Forget Password ?</Text> 
       </View>
       <View style={{width: 100, marginTop:40, alignItems:'center',marginLeft:150}}>
         <Button title="Login" color="#a3cd3d" onPress={this.login}/>
